@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ESPL.Rule.Core
 {
@@ -13,4 +14,11 @@ namespace ESPL.Rule.Core
     /// See Code Effects control online documentation for details.
     /// </summary>
     public delegate List<DataSourceItem> GetDataSourceDelegate();
+
+    internal delegate XElement GetRuleInternalDelegate(string ruleId);
+
+    /// <summary>
+    /// Declares a signature of a method that takes rule ID and returns Rule XML as a string.
+    /// </summary>
+    public delegate string GetRuleDelegate(string ruleId);
 }

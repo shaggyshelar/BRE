@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,10 +67,21 @@
     <Compile Include="Core\CacheDict.cs" />
     <Compile Include="Core\ConversionVisitor.cs" />
     <Compile Include="Core\Converter.cs" />
-    <Compile Include="Core\GetDataSourceDelegate.cs" />
+    <Compile Include="Core\Encoder.cs" />
+    <Compile Include="Core\Delegates.cs" />
+    <Compile Include="Core\EvaluationParameters.cs" />
+    <Compile Include="Core\EvaluationScope.cs" />
+    <Compile Include="Core\Evaluator.cs" />
+    <Compile Include="Core\EvaluatorBase.cs" />
+    <Compile Include="Core\ExpressionBuilder.cs" />
+    <Compile Include="Core\LinqProviderType.cs" />
+    <Compile Include="Core\Predicate.cs" />
+    <Compile Include="Core\RuleExtensions.cs" />
+    <Compile Include="Core\Vector.cs" />
     <Compile Include="Models\FeatureLocation.cs" />
     <Compile Include="Models\ParameterType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
