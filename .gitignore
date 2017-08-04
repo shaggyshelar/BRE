@@ -12,6 +12,7 @@ ESPL.BRE.Web/*/bin/**/*
 **/bin/Debug/
 **/bin/Release/
 **/obj/
+ESPL.BRE.v12.suo
 
 # User-specific files
 *.suo

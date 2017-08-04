@@ -6,7 +6,19 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link href="@Url.Content("~/Content/Common.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        function getEducationTypes() {
+            var list =
+            [
+                { "ID": 0, "Name": "Master Degree" },
+                { "ID": 1, "Name": "College" },
+                { "ID": 2, "Name": "High School" },
+                { "ID": 3, "Name": "Other" }
+            ];
+            return list;
+        };
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,6 +36,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Ajax", "Index", "Ajax")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
