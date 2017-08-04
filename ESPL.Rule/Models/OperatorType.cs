@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ESPL.Rule.Common
+namespace ESPL.Rule.Models
 {
     public enum OperatorType
     {

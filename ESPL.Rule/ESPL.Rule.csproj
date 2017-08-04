@@ -66,14 +66,19 @@
     <Compile Include="Client\ElementType.cs" />
     <Compile Include="Client\EnumHolder.cs" />
     <Compile Include="Client\Field.cs" />
+    <Compile Include="Client\Function.cs" />
     <Compile Include="Client\FunctionType.cs" />
     <Compile Include="Client\InputType.cs" />
     <Compile Include="Client\InvalidElement.cs" />
     <Compile Include="Client\Labels.cs" />
     <Compile Include="Client\Pair.cs" />
+    <Compile Include="Client\Parameter.cs" />
+    <Compile Include="Client\Returns.cs" />
     <Compile Include="Client\SelectionType.cs" />
     <Compile Include="Client\SettingHolder.cs" />
+    <Compile Include="Client\Settings.cs" />
     <Compile Include="Client\SettingType.cs" />
+    <Compile Include="Client\SourceHolder.cs" />
     <Compile Include="Common\DataSourceHolder.cs" />
     <Compile Include="Common\DataSourceItem.cs" />
     <Compile Include="Common\DataType.cs" />
@@ -83,7 +88,6 @@
     <Compile Include="Client\Item.cs" />
     <Compile Include="Common\MalformedXmlException.cs" />
     <Compile Include="Common\MenuItem.cs" />
-    <Compile Include="Common\OperatorType.cs" />
     <Compile Include="Common\RuleEditorMVCException.cs" />
     <Compile Include="Common\RuleException.cs" />
     <Compile Include="Common\RuleFormatType.cs" />
@@ -107,9 +111,19 @@
     <Compile Include="Core\LinqProviderType.cs" />
     <Compile Include="Core\Predicate.cs" />
     <Compile Include="Core\RuleExtensions.cs" />
+    <Compile Include="Core\SourceLoader.cs" />
+    <Compile Include="Core\SourceValidator.cs" />
+    <Compile Include="Core\TypeExtensions.cs" />
+    <Compile Include="Core\TypeUtils.cs" />
     <Compile Include="Core\Vector.cs" />
+    <Compile Include="Models\DataSource.cs" />
+    <Compile Include="Models\ExcludedOperator.cs" />
     <Compile Include="Models\FeatureLocation.cs" />
+    <Compile Include="Models\IControl.cs" />
+    <Compile Include="Models\Operator.cs" />
+    <Compile Include="Models\OperatorType.cs" />
     <Compile Include="Models\ParameterType.cs" />
+    <Compile Include="Models\SourceState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
   </ItemGroup>
