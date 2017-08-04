@@ -105,3 +105,10 @@ AUTHORS text
 *.woff binary
 *.pyc binary
 *.pdf binary
+
+packages
+**/ESPL.BRE.Web/bin/
+**/ESPL.BRE.Web/obj/
+./ESPL.BRE.Web/bin/**
+./ESPL.BRE.Web/obj/**
+packages/*
