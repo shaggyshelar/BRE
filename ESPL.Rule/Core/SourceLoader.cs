@@ -1496,7 +1496,7 @@ namespace ESPL.Rule.Core
 		private static bool ParamsMatch(XmlNode source, Type sourceObject, ParameterInfo[] pis, XmlNodeList paramNodes)
         {
             return false;
-        //TODO
+            throw new NotImplementedException();//TODO
         //{
         //    bool flag = true;
         //    int i = 0;

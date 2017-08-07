@@ -630,7 +630,8 @@ namespace ESPL.Rule.Common
 					}, null);
 					if (!(method != null))
 					{
-						//TODO: goto IL_546;
+
+                        throw new NotImplementedException();//TODO: goto IL_546;
 					}
 					try
 					{
@@ -645,7 +646,7 @@ namespace ESPL.Rule.Common
 					}
 					catch
 					{
-						//TODO: goto IL_546;
+                        throw new NotImplementedException();//TODO: goto IL_546;
 					}
 				}
 				MethodInfo method2 = type2.GetMethod("Parse", BindingFlags.Static | BindingFlags.Public, null, new Type[]
@@ -807,7 +808,7 @@ namespace ESPL.Rule.Common
 			string key;
 			if ((key = text) != null)
 			{
-                //TODO: //if (<PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000295-1 == null)
+                throw new NotImplementedException();//TODO: //if (<PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000295-1 == null)
                 //{
                 //    <PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000295-1 = new Dictionary<string, int>(15)
                 //    {
@@ -1327,7 +1328,7 @@ namespace ESPL.Rule.Common
 
 		private static void CastToCommonType(Expression[] expressions)
 		{
-            //TODO: //Type type = expressions[0].Type.GetNonNullableType();
+            throw new NotImplementedException();//TODO: //Type type = expressions[0].Type.GetNonNullableType();
             //int num = ExpressionBuilderBase.NumericTypeRank(type);
             //if (num > ExpressionBuilderBase.NumericTypeRank(typeof(byte)))
             //{

@@ -493,7 +493,7 @@ namespace ESPL.Rule.Core
                                             }
                                             else if (sourceNodeByToken != null)
                                             {
-                                                //TODO:
+                                                throw new NotImplementedException();//TODO:
                                                 //if (text != null)
                                             //    {
                                             //        try
@@ -558,7 +558,7 @@ namespace ESPL.Rule.Core
                                                 {
                                                     RuleValidator.AddInvalidElement(list, help, element.Name, "v131");
                                                 }
-                                                //TODO: goto IL_1179;
+                                                throw new NotImplementedException();//TODO: goto IL_1179;
                                             }
                                             break;
                                         case OperatorType.Date:
@@ -1753,13 +1753,13 @@ namespace ESPL.Rule.Core
                     xmlNode = null;
                     if (element.Type == ElementType.Function)
                     {
-                        //TODO:goto IL_E9;
+                        throw new NotImplementedException();//TODO:goto IL_E9;
                     }
                     if (element.Type == ElementType.Calculation)
                     {
                         goto Block_7;
                     }
-                //TODO:goto IL_FB;
+                    throw new NotImplementedException();//TODO:goto IL_FB;
                 IL_10D:
                     if (xmlNode != null && xmlNode.Attributes["class"] != null)
                     {
@@ -1922,7 +1922,7 @@ namespace ESPL.Rule.Core
                             }
                             goto Block_11;
                         }
-                    //TODO:goto IL_125;
+                    throw new NotImplementedException();//TODO:goto IL_125;
                     IL_137:
                         xmlNode = SourceLoader.GetParamNode(function);
                         if (xmlNode != null)

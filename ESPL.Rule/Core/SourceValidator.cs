@@ -27,7 +27,7 @@ namespace ESPL.Rule.Core
 
         internal static void ValidateField(XmlNode field)
         {
-            //TODO: 
+            throw new NotImplementedException();//TODO: 
             //string name;
             //if ((name = field.Name) != null)
             //{
