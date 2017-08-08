@@ -1,0 +1,223 @@
+﻿div.left {
+	float: left;
+}
+
+div.right {
+	float: right;
+}
+
+div.clear {
+	clear: both;
+}
+
+/* Changing the default width of text boxes on Code Effects toolbar */
+input.ceNameBox, input.ceNameBoxDefault {
+	width: 160px;
+}
+
+input.ceDescriptionBox, input.ceDescriptionBoxDefault {
+	width: 220px;
+}
+
+div.main {
+	width: 600px;
+	margin: 10px auto;
+}
+
+label {
+	margin-left: 10px;
+}
+
+input[type="checkbox"], label {
+	vertical-align: middle;
+}
+
+div.row {
+	margin-top: 10px;
+}
+
+div.settings {
+	padding: 10px;
+	background-color: #eaeaea;
+}
+
+input[type="text"] {
+	width: 150px;
+}
+
+select {
+	width: 154px;
+}
+
+body, p, a, span, td {
+	font-family: Tahoma,Geneva,Arial,sans-serif;
+}
+
+	.verdana, .logo, .title, a.nav, .selectedNav, input, select, textarea, option, a.button, .button {
+		font-family: Verdana,Geneva,Tahoma,Arial,sans-serif;
+	}
+
+	.bold, .logo, .title, a.nav, .selectedNav, .button {
+		font-weight: bold;
+	}
+
+body {
+	font-size: 12px;
+}
+
+.logo {
+	font-size: 16px;
+}
+
+a.nav, .selectedNav {
+	font-size: 13px;
+}
+
+.title {
+	font-size: 14px;
+}
+
+.small, input, select, option, textarea, a.button, .button {
+	font-size: 11px;
+}
+
+.tiny {
+	font-size: 10px;
+}
+
+a, a:hover, a.nav, a:hover.button {
+	text-decoration: none;
+}
+
+	.textShadow, .logo, a.nav, .title, a.doc {
+		text-shadow: 1px 1px 1px #CCC;
+	}
+
+.button {
+	-moz-box-shadow: 1px 1px 2px #ACACAC;
+	-webkit-box-shadow: 1px 1px 3px #ACACAC;
+	box-shadow: 1px 1px 3px #ACACAC;
+}
+
+a:hover, a:hover.button, a.nodecor, span:hover.link, span:hover.button, input:hover.button {
+	color: #000;
+}
+
+body, a.nav {
+	color: #444;
+}
+
+.distincted, span.link, a, a:hover.nav {
+	color: #F09800;
+}
+
+.control, input, select, textarea {
+	color: #176CCF;
+}
+
+.selected {
+	color: #C00900;
+}
+
+.selectedNav, .button {
+	color: #FFF;
+}
+
+body {
+	background-color: #FFF;
+}
+
+.button, .selectedNav {
+	background-color: #FFAD2B;
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFC15E), to(#EB9000));
+	background: -moz-linear-gradient(top, #FFC15E, #EB9000);
+}
+
+body {
+	margin: 0px;
+}
+
+h1 {
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+
+.area {
+	margin-top: 10px;
+}
+
+body {
+	padding: 0px;
+}
+
+.nav, .selectedNav {
+	padding: 2px 8px 4px 8px;
+}
+
+.button {
+	padding: 2px 20px 4px 20px;
+}
+
+.area {
+	padding: 20px;
+}
+
+
+.defaultCursor, .selectedNav {
+	cursor: default;
+}
+
+.pointerCursor, .logo, .link, .button {
+	cursor: pointer;
+}
+
+img {
+	border: 0;
+}
+
+.border, .area {
+	border: solid 1px #D1D1D1;
+}
+
+.borderTop {
+	border-top: solid 1px #D1D1D1;
+}
+
+.borderBottom, .hr {
+	border-bottom: solid 1px #D1D1D1;
+}
+
+.borderLeft {
+	border-left: solid 1px #D1D1D1;
+}
+
+.borderRight {
+	border-right: solid 1px #D1D1D1;
+}
+
+.button {
+	border: solid 1px #FFAD2B;
+}
+
+.selectedNav, .button {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.area, div.settings {
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+
+/*bootstrap sets background-image to none on all inputs which removes default OS border styling on those elements*/
+input {
+    border-top: 1px rgba(112, 112, 112, 1) solid;
+    border-left: 1px rgba(112, 112, 112, 1) solid;
+    border-right: 1px rgba(112, 112, 112, 1) solid;
+    border-bottom: 1px rgba(112, 112, 112, 1) solid;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+	line-height: normal;
+}

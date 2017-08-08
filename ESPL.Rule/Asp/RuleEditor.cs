@@ -1283,8 +1283,11 @@ namespace ESPL.Rule.Asp
             if (string.IsNullOrEmpty(this.HelpXmlFile))
             {
                 XmlDocument xmlDocument = new XmlDocument();
-                string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
-                xmlDocument.LoadXml(xml);
+                var assembly = Assembly.GetExecutingAssembly();
+                string strFileName = "CodeEffects.Rule.Resource.Scripts.Control.js";
+                var stream = assembly.GetManifestResourceStream(this.GetType(), strFileName);
+                throw new NotImplementedException();//TODO string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
+                //xmlDocument.LoadXml(xml);
                 return xmlDocument;
             }
             XmlDocument cachedXmlFile;

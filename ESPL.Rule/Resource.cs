@@ -32,7 +32,7 @@ namespace ESPL.Rule
             {
                 if (object.ReferenceEquals(Resource.resourceMan, null))
                 {
-                    ResourceManager resourceManager = new ResourceManager("CodeEffects.Rule.Resource", typeof(Resource).Assembly);
+                    ResourceManager resourceManager = new ResourceManager("ESPL.Rule.Resource", typeof(Resource).Assembly);
                     Resource.resourceMan = resourceManager;
                 }
                 return Resource.resourceMan;

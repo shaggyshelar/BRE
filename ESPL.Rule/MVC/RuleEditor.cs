@@ -5,6 +5,7 @@ using ESPL.Rule.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -495,9 +496,14 @@ namespace ESPL.Rule.MVC
             }
             if (string.IsNullOrEmpty(this.HelpXmlFile))
             {
-                string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
+                var assembly = Assembly.GetExecutingAssembly();
+                string strFileName = "CodeEffects.Rule.Resource.Scripts.Control.js";
+                var stream = assembly.GetManifestResourceStream(this.GetType(), strFileName);
+                throw new NotImplementedException();//TODO string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
+                //xmlDocument.LoadXml(xml);
+                throw new NotImplementedException();//TODO string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
                 this.HelpXml = new XmlDocument();
-                this.HelpXml.LoadXml(xml);
+                //this.HelpXml.LoadXml(xml);
                 return this.HelpXml;
             }
             XmlDocument helpXml;

@@ -80,7 +80,7 @@ namespace ESPL.Rule.Common
         private string LoadMessage(string messageId, string[] parameters)
         {
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.LoadXml(Resource.Errors);
+            throw new NotImplementedException();//TODO //xmlDocument.LoadXml(Resources.Errors);
             XmlNode xmlNode = xmlDocument.DocumentElement.SelectSingleNode("/codeeffects/values/" + messageId);
             if (xmlNode == null)
             {

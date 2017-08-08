@@ -1,0 +1,114 @@
+﻿@model ESPL.Rule.Demo.Models.Patient
+<div>
+    <div class="left" style="width:180px;">
+        <div class="row">
+            <div>First Name:</div>
+            <div>@Html.TextBoxFor(m => m.FirstName)</div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div>Last Name:</div>
+            <div>@Html.TextBoxFor(m => m.LastName)</div>
+        </div>
+        <div class="row">
+            <div>Email:</div>
+            <div>@Html.TextBoxFor(m => m.Email)</div>
+        </div>
+        <div class="row">
+            <div>Date of Birth:</div>
+            <div>@Html.TextBoxFor(m => m.DOB)</div>
+        </div>
+        <div class="row">
+            <div>Gender:</div>
+            <div>
+                @Html.DropDownListFor(m => m.Gender, ViewBag.Genders as List<SelectListItem>)
+            </div>
+        </div>
+        <div class="row">
+            <div>Education:</div>
+            <div>
+                @Html.DropDownListFor(m => m.EducationTypeID, ViewBag.EducationLevels as List<SelectListItem>)
+            </div>
+        </div>
+        <div class="row">
+            <div>Physician:</div>
+            <div>
+                @Html.DropDownListFor(m => m.PhysicianID, ViewBag.Physicians as List<SelectListItem>)
+            </div>
+        </div>
+    </div>
+    <div class="left" style="width:180px;">
+        <div class="row">
+            <div>Home Street:</div>
+            <div>@Html.TextBoxFor(m => m.Home.Street)</div>
+        </div>
+        <div class="row">
+            <div>Home City:</div>
+            <div>@Html.TextBoxFor(m => m.Home.City)</div>
+        </div>
+        <div class="row">
+            <div>Home State:</div>
+            <div>
+                @Html.DropDownListFor(m => m.Home.State, ViewBag.States as List<SelectListItem>)
+            </div>
+        </div>
+        <div class="row">
+            <div>Home Zip:</div>
+            <div>@Html.TextBoxFor(m => m.Home.Zip)</div>
+        </div>
+        <div class="row">
+            <div>Work Street:</div>
+            <div>@Html.TextBoxFor(m => m.Work.Street)</div>
+        </div>
+        <div class="row">
+            <div>Work City:</div>
+            <div>@Html.TextBoxFor(m => m.Work.City)</div>
+        </div>
+        <div class="row">
+            <div>Work State:</div>
+            <div>
+                @Html.DropDownListFor(m => m.Work.State, ViewBag.States as List<SelectListItem>)
+            </div>
+        </div>
+        <div class="row">
+            <div>Work Zip:</div>
+            <div>@Html.TextBoxFor(m => m.Work.Zip)</div>
+        </div>
+    </div>
+    <div class="left" style="width:180px;">
+        <div class="row">
+            <div>Pulse:</div>
+            <div>@Html.TextBoxFor(m => m.Pulse)</div>
+        </div>
+        <div class="row">
+            <div>Systolic Pressure:</div>
+            <div>@Html.TextBoxFor(m => m.SystolicPressure)</div>
+        </div>
+        <div class="row">
+            <div>Diastolic Pressure:</div>
+            <div>@Html.TextBoxFor(m => m.DiastolicPressure)</div>
+        </div>
+        <div class="row">
+            <div>Temperature:</div>
+            <div>@Html.TextBoxFor(m => m.Temperature)</div>
+        </div>
+        <div class="row">
+            @Html.CheckBoxFor(m => m.Headaches)
+            <label for="Headaches">Headaches?</label>
+        </div>
+        <div class="row">
+            @Html.CheckBoxFor(m => m.Allergies)
+            <label for="Allergies">Allergies?</label>
+        </div>
+        <div class="row">
+            @Html.CheckBoxFor(m => m.Tobacco)
+            <label for="Tobacco">Smoker?</label>
+        </div>
+        <div class="row">
+            @Html.CheckBoxFor(m => m.Alcohol)
+            <label for="Alcohol">Alcohol Use?</label>
+        </div>
+        <div style="text-align:right;margin-top:10px;"><input type="submit" id="Button" name="Button" value="Test" class="button" /></div>
+    </div>
+    <div class="clear"></div>
+</div>

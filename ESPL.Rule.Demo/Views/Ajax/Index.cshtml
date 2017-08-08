@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Ajax Example";
+
+    Html.CodeEffects().Styles()
+        .Render();
+}
+
+<div class="area">
+    <h1 class="title">Ajax Example</h1>
+    <div style="margin-top:10px;">
+        <span>Info:</span>
+        <span id="Info" style="color:Red;">Demo version. Evaluations are delayed for 1 second.</span>
+    </div>
+    <div style="margin-top:10px;">
+        @{
+            Html.CodeEffects().RuleEditor()
+                .Id("ruleEditor")
+                .Mode(RuleType.Execution)
+                .ClientOnly(true)
+                .Rule(ViewBag.Rule)
+                .Render();
+        }
+    </div>
+</div>
+<div class="area">
+    <h1 class="title" style="margin-top:20px;">Rule Test Form</h1>
+    @{
+        Html.RenderPartial("_PatientForm");
+    }
+</div>
+
+@{
+    Html.CodeEffects().Scripts().Render();
+}
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/json2.js")
+    @Scripts.Render("~/Scripts/AjaxExample.js")
+}
