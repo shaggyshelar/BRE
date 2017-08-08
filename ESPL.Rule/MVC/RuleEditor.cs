@@ -4,6 +4,7 @@ using ESPL.Rule.Core;
 using ESPL.Rule.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -497,13 +498,16 @@ namespace ESPL.Rule.MVC
             if (string.IsNullOrEmpty(this.HelpXmlFile))
             {
                 var assembly = Assembly.GetExecutingAssembly();
-                string strFileName = "CodeEffects.Rule.Resource.Scripts.Control.js";
-                var stream = assembly.GetManifestResourceStream(this.GetType(), strFileName);
-                throw new NotImplementedException();//TODO string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
-                //xmlDocument.LoadXml(xml);
-                throw new NotImplementedException();//TODO string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
+                string strFileName = "ESPL.Rule.Resources.FilterType.xml";
+                var stream = assembly.GetManifestResourceStream(strFileName);
+                var textStreamReader = new StreamReader(assembly.GetManifestResourceStream(strFileName));
+                string content = textStreamReader.ReadToEnd();
+                XmlDocument xmlDocument = new XmlDocument();
+                //xmlDocument.Load(textStreamReader);
+                xmlDocument.LoadXml(content);
+
                 this.HelpXml = new XmlDocument();
-                //this.HelpXml.LoadXml(xml);
+                this.HelpXml.LoadXml(content);
                 return this.HelpXml;
             }
             XmlDocument helpXml;

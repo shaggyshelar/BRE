@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+	targetNamespace="http://codeeffects.com/schemas/source/42" 
+	xmlns="http://codeeffects.com/schemas/source/42"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+>
+	<xs:element name="codeeffects" type="codeeffects" />
+
+	<xs:complexType name="codeeffects">
+		<xs:sequence>
+			<xs:element name="source" type="source" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="source">
+		<xs:sequence>
+			<xs:element name="fields" type="fields" minOccurs="1" maxOccurs="1" />
+			<xs:element name="actions" type="actions" minOccurs="0" maxOccurs="1" />
+			<xs:element name="dataSources" type="dataSources" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="webrule" type="xs:string" use="required" />
+		<xs:attribute name="utc" type="xs:string" use="optional" />
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="type" type="xs:string" use="required" />
+		<xs:attribute name="persisted" type="xs:boolean" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="fields">
+		<xs:choice minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="collection" type="collection" />
+			<xs:element name="bool" type="property" />
+			<xs:element name="date" type="dateField" />
+			<xs:element name="time" type="timeField" />
+			<xs:element name="numeric" type="numericField" />
+			<xs:element name="string" type="stringField" />
+			<xs:element name="function" type="functionField" />
+			<xs:element name="enum" type="enumField" />
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="actions">
+		<xs:sequence>
+			<xs:element name="action" type="actionField" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="dataSources">
+		<xs:sequence>
+			<xs:element name="dataSource" type="dataSource" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="describable">
+		<xs:attribute name="displayName" use="required" type="xs:string"/>
+		<xs:attribute name="description" use="optional" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="field">
+		<xs:complexContent>
+			<xs:extension base="describable">
+				<xs:attribute name="class" use="optional" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="property">
+		<xs:complexContent>
+			<xs:extension base="field">
+				<xs:attribute name="propertyName" use="required" type="xs:string"/>
+				<xs:attribute name="nullable" use="required" type="xs:boolean"/>
+				<xs:attribute name="settable" use="optional" type="xs:boolean"/>
+				<xs:attribute name="gettable" use="optional" type="xs:boolean"/>
+				<xs:attribute name="valueInputType" use="required" type="valueInputType"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="valueItemOptions">
+		<xs:attribute name="assembly" use="optional" type="xs:string"/>
+		<xs:attribute name="format" use="optional" type="xs:string"/>
+		<xs:attribute name="maxLength" use="optional" type="xs:decimal"/>
+		<xs:attribute name="min" use="optional" type="xs:decimal"/>
+		<xs:attribute name="max" use="optional" type="xs:decimal"/>
+		<xs:attribute name="allowDecimal" use="optional" type="xs:boolean"/>
+		<xs:attribute name="allowCalculation" use="optional" type="xs:boolean"/>
+		<xs:attribute name="dataSourceName" use="optional" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="valueFieldOptions">
+		<xs:complexContent>
+			<xs:extension base="valueItemOptions">
+				<xs:attribute name="stringComparison" use="optional" type="stringComparison"/>
+				<xs:attribute name="includeInCalculations" use="optional" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="referenceItem">
+		<xs:attribute name="displayName" use="required" type="xs:string"/>
+		<xs:attribute name="class" use="required" type="xs:string"/>
+	</xs:complexType>
+	
+	<xs:complexType name="valueItem">
+		<xs:complexContent>
+			<xs:extension base="valueFieldOptions">
+				<xs:attribute name="type" use="required" type="itemType"/>
+				<xs:attribute name="class" use="required" type="xs:string"/>
+				<xs:attribute name="nullable" use="required" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="referenceParameterItem">
+		<xs:attribute name="class" use="required" type="xs:string"/>
+	</xs:complexType>
+	
+	<xs:complexType name="valueParameterItem">
+		<xs:complexContent>
+			<xs:extension base="valueItemOptions">
+				<xs:attribute name="type" use="required" type="itemType"/>
+				<xs:attribute name="class" use="required" type="xs:string"/>
+				<xs:attribute name="nullable" use="required" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="genericItem" />
+
+	<xs:complexType name="collection">
+		<xs:complexContent>
+			<xs:extension base="describable">
+				<xs:choice minOccurs="1" maxOccurs="1">
+					<xs:element name="reference" type="referenceItem" />
+					<xs:element name="value" type="valueItem" />
+				</xs:choice>
+				<xs:attribute name="propertyName" use="required" type="xs:string"/>
+				<xs:attribute name="class" use="required" type="xs:string"/>
+				<xs:attribute name="generic" use="required" type="xs:boolean"/>
+				<xs:attribute name="array" use="required" type="xs:boolean"/>
+				<xs:attribute name="gettable" use="optional" type="xs:boolean"/>
+				<xs:attribute name="valueInputType" use="optional" type="valueInputType"/>
+				<xs:attribute name="comparisonName" use="required" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="method">
+		<xs:complexContent>
+			<xs:extension base="field">
+				<xs:attribute name="methodName" use="required" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="return">
+		<xs:complexContent>
+			<xs:extension base="valueFieldOptions">
+				<xs:attribute name="valueInputType" use="required" type="valueInputType"/>
+				<xs:attribute name="type" use="required" type="itemType"/>
+				<xs:attribute name="description" use="optional" type="xs:string"/>
+				<xs:attribute name="class" use="required" type="xs:string"/>
+				<xs:attribute name="nullable" use="required" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="dateField">
+		<xs:complexContent>
+			<xs:extension base="property">
+				<xs:attribute name="format" use="required" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="timeField">
+		<xs:complexContent>
+			<xs:extension base="property">
+				<xs:attribute name="format" use="required" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="numericField">
+		<xs:complexContent>
+			<xs:extension base="property">
+				<xs:attribute name="min" use="required" type="xs:decimal"/>
+				<xs:attribute name="max" use="required" type="xs:decimal"/>
+				<xs:attribute name="allowDecimal" use="required" type="xs:boolean"/>
+				<xs:attribute name="allowCalculation" use="required" type="xs:boolean"/>
+				<xs:attribute name="includeInCalculations" use="required" type="xs:boolean"/>
+				<xs:attribute name="dataSourceName" use="optional" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="stringField">
+		<xs:complexContent>
+			<xs:extension base="property">
+				<xs:attribute name="minLength" use="optional" type="xs:decimal"/>
+				<xs:attribute name="maxLength" use="required" type="xs:decimal"/>
+				<xs:attribute name="stringComparison" use="optional" type="stringComparison"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="enumField">
+		<xs:complexContent>
+			<xs:extension base="property">
+				<xs:attribute name="assembly" use="required" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="functionField">
+		<xs:complexContent>
+			<xs:extension base="method">
+				<xs:sequence>
+					<xs:element name="parameters" type="parameters" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="returns" type="return" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+				<xs:attribute name="assembly" use="optional" type="xs:string"/>
+				<xs:attribute name="includeInCalculations" use="optional" type="xs:boolean"/>
+				<xs:attribute name="gettable" use="optional" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="actionField">
+		<xs:complexContent>
+			<xs:extension base="method">
+				<xs:sequence>
+					<xs:element name="parameters" type="parameters" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+				<xs:attribute name="assembly" use="optional" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="dataSource">
+		<xs:attribute name="name" use="required" type="xs:string"/>
+		<xs:attribute name="location" use="required" type="location"/>
+		<xs:attribute name="methodName" use="required" type="xs:string"/>
+		<xs:attribute name="class" use="optional" type="xs:string"/>
+		<xs:attribute name="assembly" use="optional" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="parameters">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="input" type="inputParameter"/>
+			<xs:element name="constant" type="constantParameter"/>
+			<xs:element name="collection" type="collectionParameter"/>
+			<xs:element name="source" type="sourceParameter" minOccurs="0" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="inputParameter">
+		<xs:complexContent>
+			<xs:extension base="valueItemOptions">
+				<xs:attribute name="description" use="optional" type="xs:string"/>
+				<xs:attribute name="class" use="optional" type="xs:string"/>
+				<xs:attribute name="nullable" use="required" type="xs:boolean"/>
+				<xs:attribute name="valueInputType" use="required" type="valueInputType"/>
+				<xs:attribute name="type" use="required" type="inputType"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="constantParameter">
+		<xs:attribute name="value" use="required" type="xs:string"/>
+		<xs:attribute name="class" use="required" type="xs:string"/>
+		<xs:attribute name="assembly" use="optional" type="xs:string"/>
+		<xs:attribute name="nullable" use="required" type="xs:boolean"/>
+		<xs:attribute name="type" use="required" type="itemType"/>
+	</xs:complexType>
+
+	<xs:complexType name="collectionParameter">
+		<xs:choice minOccurs="1" maxOccurs="1">
+			<xs:element name="reference" type="referenceParameterItem" />
+			<xs:element name="value" type="valueParameterItem" />
+			<xs:element name="generic" type="genericItem" />
+		</xs:choice>
+		<xs:attribute name="description" use="optional" type="xs:string"/>
+		<xs:attribute name="class" use="required" type="xs:string"/>
+		<xs:attribute name="generic" use="required" type="xs:boolean"/>
+		<xs:attribute name="array" use="required" type="xs:boolean"/>
+		<xs:attribute name="comparisonName" use="required" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="sourceParameter" />
+
+	<xs:simpleType name="itemType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="date" />
+			<xs:enumeration value="enum" />
+			<xs:enumeration value="numeric" />
+			<xs:enumeration value="string" />
+			<xs:enumeration value="time" />
+			<xs:enumeration value="bool" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="inputType">
+		<xs:union memberTypes="itemType">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="collection" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+
+	<xs:simpleType name="valueInputType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="all" />
+			<xs:enumeration value="fields" />
+			<xs:enumeration value="user" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="location">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="client" />
+			<xs:enumeration value="server" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="stringComparison">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CurrentCulture" />
+			<xs:enumeration value="CurrentCultureIgnoreCase" />
+			<xs:enumeration value="InvariantCulture" />
+			<xs:enumeration value="InvariantCultureIgnoreCase" />
+			<xs:enumeration value="Ordinal" />
+			<xs:enumeration value="OrdinalIgnoreCase" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

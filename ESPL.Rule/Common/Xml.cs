@@ -134,23 +134,34 @@ namespace ESPL.Rule.Common
             string key;
             switch (key = sourceNamespaceUri.ToLower())
             {
-                case "http://codeeffects.com/schemas/source/3":
-                case "http://rule.codeeffects.com/schemas/source/3":
-                    return "CodeEffects.Rule.Resources.Schemas.Source.3.xsd";
-                case "http://rule.codeeffects.com/schemas/source/4":
-                case "http://codeeffects.com/schemas/source/4":
-                    return "CodeEffects.Rule.Resources.Schemas.Source.4.xsd";
-                case "http://rule.codeeffects.com/schemas/source/42":
-                case "http://codeeffects.com/schemas/source/42":
-                    return "CodeEffects.Rule.Resources.Schemas.Source.4.2.xsd";
+                //case "http://codeeffects.com/schemas/source/3":
+                //case "http://rule.codeeffects.com/schemas/source/3":
+                //    return "CodeEffects.Rule.Resources.Schemas.Source.3.xsd";
+                //case "http://rule.codeeffects.com/schemas/source/4":
+                //case "http://codeeffects.com/schemas/source/4":
+                //    return "CodeEffects.Rule.Resources.Schemas.Source.4.xsd";
+                //case "http://rule.codeeffects.com/schemas/source/42":
+                //case "http://codeeffects.com/schemas/source/42":
+                //    return "CodeEffects.Rule.Resources.Schemas.Source.4.2.xsd";
+
+                case "http://espl.com/schemas/source/3":
+                case "http://rule.espl.com/schemas/source/3":
+                    return "ESPL.Rule.Resources.Schemas.Source.3.xsd";
+                case "http://rule.espl.com/schemas/source/4":
+                case "http://espl.com/schemas/source/4":
+                    return "ESPL.Rule.Resources.Schemas.Source.4.xsd";
+                case "http://rule.espl.com/schemas/source/42":
+                case "http://espl.com/schemas/source/42":
+                    return "ESPL.Rule.Resources.Schemas.Source.4.2.xsd";
             }
-            return "CodeEffects.Rule.Resources.Schemas.Source.2.xsd";
+            return "ESPL.Rule.Resources.Schemas.Source.2.xsd";
         }
 
         internal static XmlDocument GetEmptySourceDocument()
         {
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.InnerXml = string.Format("<codeeffects xmlns=\"{0}\"></codeeffects>", "http://codeeffects.com/schemas/source/42");
+            //xmlDocument.InnerXml = string.Format("<codeeffects xmlns=\"{0}\"></codeeffects>", "http://codeeffects.com/schemas/source/42");
+            xmlDocument.InnerXml = string.Format("<espl xmlns=\"{0}\"></espl>", "http://espl.com/schemas/source/42");
             xmlDocument.InsertBefore(xmlDocument.CreateXmlDeclaration("1.0", "utf-8", "yes"), xmlDocument.DocumentElement);
             return xmlDocument;
         }
