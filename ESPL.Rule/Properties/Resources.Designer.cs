@@ -70,7 +70,15 @@ namespace ESPL.Rule.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;codeeffects&gt;
+        ///	&lt;help&gt;
+        ///		&lt;i101&gt;Click inside of the Filter Area to begin a new filter&lt;/i101&gt;
+        ///		&lt;i102&gt;Click anywhere inside of the Filter Area to modify the filter&lt;/i102&gt;
+        ///		&lt;i103&gt;Select a field or parenthesis from the menu; hit Space Bar if it&apos;s hidden&lt;/i103&gt;
+        ///		&lt;i104&gt;Select an operator from the menu; hit Space Bar if it&apos;s hidden&lt;/i104&gt;
+        ///		&lt;i105&gt;Type the value; use Backspace to delete, Enter or Right Arrow to complete&lt;/i105&gt;
+        ///		&lt;i106&gt;Select calculation elements from [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Errors {
             get {

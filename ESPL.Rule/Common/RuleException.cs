@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ESPL.Rule.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -80,7 +82,9 @@ namespace ESPL.Rule.Common
         private string LoadMessage(string messageId, string[] parameters)
         {
             XmlDocument xmlDocument = new XmlDocument();
-            throw new NotImplementedException();//TODO //xmlDocument.LoadXml(Resources.Errors);
+            xmlDocument.LoadXml(Resources.Errors);
+
+            
             XmlNode xmlNode = xmlDocument.DocumentElement.SelectSingleNode("/codeeffects/values/" + messageId);
             if (xmlNode == null)
             {

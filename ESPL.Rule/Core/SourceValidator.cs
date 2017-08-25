@@ -16,6 +16,7 @@ namespace ESPL.Rule.Core
 {
     internal sealed class SourceValidator
     {
+        private static Dictionary<string, int> _methods;
         private SourceValidator()
         {
         }
@@ -27,143 +28,138 @@ namespace ESPL.Rule.Core
 
         internal static void ValidateField(XmlNode field)
         {
-            throw new NotImplementedException();//TODO: 
-            //string name;
-            //if ((name = field.Name) != null)
-            //{
-            //    if (<PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000311-1 == null)
-            //    {
-            //        <PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000311-1 = new Dictionary<string, int>(8)
-            //        {
-            //            {
-            //                "function",
-            //                0
-            //            },
-            //            {
-            //                "collection",
-            //                1
-            //            },
-            //            {
-            //                "bool",
-            //                2
-            //            },
-            //            {
-            //                "date",
-            //                3
-            //            },
-            //            {
-            //                "enum",
-            //                4
-            //            },
-            //            {
-            //                "numeric",
-            //                5
-            //            },
-            //            {
-            //                "string",
-            //                6
-            //            },
-            //            {
-            //                "time",
-            //                7
-            //            }
-            //        };
-            //    }
-            //    int num;
-            //    if (<PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000311-1.TryGetValue(name, out num))
-            //    {
-            //        switch (num)
-            //        {
-            //        case 0:
-            //            using (IEnumerator enumerator = field.ChildNodes.GetEnumerator())
-            //            {
-            //                while (enumerator.MoveNext())
-            //                {
-            //                    XmlNode xmlNode = (XmlNode)enumerator.Current;
-            //                    if (xmlNode.Name == "parameters")
-            //                    {
-            //                        using (IEnumerator enumerator2 = xmlNode.ChildNodes.GetEnumerator())
-            //                        {
-            //                            while (enumerator2.MoveNext())
-            //                            {
-            //                                XmlNode xmlNode2 = (XmlNode)enumerator2.Current;
-            //                                string name2;
-            //                                if ((name2 = xmlNode2.Name) != null)
-            //                                {
-            //                                    if (!(name2 == "constant"))
-            //                                    {
-            //                                        if (!(name2 == "input"))
-            //                                        {
-            //                                            if (name2 == "collection")
-            //                                            {
-            //                                                if (xmlNode2.ChildNodes.Count != 1)
-            //                                                {
-            //                                                    throw new SourceException(SourceException.ErrorIds.InvalidCollectionParameterXML, new string[0]);
-            //                                                }
-            //                                                if (Converter.StringToCollectionType(xmlNode2.ChildNodes[0].Name) == CollectionType.Value)
-            //                                                {
-            //                                                    SourceValidator.ValidateFieldDataType(xmlNode2.ChildNodes[0], Converter.ClientStringToClientType(xmlNode2.ChildNodes[0].Attributes["type"].Value));
-            //                                                }
-            //                                            }
-            //                                        }
-            //                                        else
-            //                                        {
-            //                                            switch (Converter.ClientStringToClientType(xmlNode2.Attributes["type"].Value))
-            //                                            {
-            //                                            case OperatorType.String:
-            //                                            case OperatorType.Numeric:
-            //                                                SourceValidator.ValidateFieldDataType(xmlNode2, Converter.ClientStringToClientType(xmlNode2.Attributes["type"].Value));
-            //                                                break;
-            //                                            }
-            //                                        }
-            //                                    }
-            //                                    else
-            //                                    {
-            //                                        SourceValidator.ValidateConstantParam(xmlNode2);
-            //                                    }
-            //                                }
-            //                            }
-            //                            continue;
-            //                        }
-            //                    }
-            //                    if (xmlNode.Name == "returns")
-            //                    {
-            //                        SourceValidator.ValidateFieldDataType(xmlNode, Converter.ClientStringToClientType(xmlNode.Attributes["type"].Value));
-            //                    }
-            //                }
-            //                return;
-            //            }
-            //            break;
-            //        case 1:
-            //            break;
-            //        case 2:
-            //        case 3:
-            //        case 4:
-            //        case 5:
-            //        case 6:
-            //        case 7:
-            //            SourceValidator.ValidateFieldDataType(field, Converter.ClientStringToClientType(field.Name));
-            //            return;
-            //        default:
-            //            goto IL_311;
-            //        }
-            //        if (field.ChildNodes.Count != 1)
-            //        {
-            //            throw new SourceException(SourceException.ErrorIds.InvalidCollectionParameterXML, new string[0]);
-            //        }
-            //        if (Converter.StringToCollectionType(field.ChildNodes[0].Name) == CollectionType.Value)
-            //        {
-            //            SourceValidator.ValidateFieldDataType(field.ChildNodes[0], Converter.ClientStringToClientType(field.ChildNodes[0].Attributes["type"].Value));
-            //            return;
-            //        }
-            //        return;
-            //    }
-            //}
-            //IL_311:
-            //throw new MalformedXmlException(MalformedXmlException.ErrorIds.InvalidFieldName, new string[]
-            //{
-            //    field.Name
-            //});
+            string name;
+            if ((name = field.Name) != null)
+            {
+                if (_methods == null)
+                {
+                    _methods = new Dictionary<string, int>(8)
+                    {
+                        {
+                            "function",
+                            0
+                        },
+                        {
+                            "collection",
+                            1
+                        },
+                        {
+                            "bool",
+                            2
+                        },
+                        {
+                            "date",
+                            3
+                        },
+                        {
+                            "enum",
+                            4
+                        },
+                        {
+                            "numeric",
+                            5
+                        },
+                        {
+                            "string",
+                            6
+                        },
+                        {
+                            "time",
+                            7
+                        }
+                    };
+                }
+                int num;
+                if (_methods.TryGetValue(name, out num))
+                {
+                    switch (num)
+                    {
+                        case 0:
+                            IEnumerator enumerator = field.ChildNodes.GetEnumerator();
+                            while (enumerator.MoveNext())
+                            {
+                                XmlNode xmlNode = (XmlNode)enumerator.Current;
+                                if (xmlNode.Name == "parameters")
+                                {
+                                    IEnumerator enumerator2 = xmlNode.ChildNodes.GetEnumerator();
+                                    while (enumerator2.MoveNext())
+                                    {
+                                        XmlNode xmlNode2 = (XmlNode)enumerator2.Current;
+                                        string name2;
+                                        if ((name2 = xmlNode2.Name) != null)
+                                        {
+                                            if (!(name2 == "constant"))
+                                            {
+                                                if (!(name2 == "input"))
+                                                {
+                                                    if (name2 == "collection")
+                                                    {
+                                                        if (xmlNode2.ChildNodes.Count != 1)
+                                                        {
+                                                            throw new SourceException(SourceException.ErrorIds.InvalidCollectionParameterXML, new string[0]);
+                                                        }
+                                                        if (Converter.StringToCollectionType(xmlNode2.ChildNodes[0].Name) == CollectionType.Value)
+                                                        {
+                                                            SourceValidator.ValidateFieldDataType(xmlNode2.ChildNodes[0], Converter.ClientStringToClientType(xmlNode2.ChildNodes[0].Attributes["type"].Value));
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    switch (Converter.ClientStringToClientType(xmlNode2.Attributes["type"].Value))
+                                                    {
+                                                        case OperatorType.String:
+                                                        case OperatorType.Numeric:
+                                                            SourceValidator.ValidateFieldDataType(xmlNode2, Converter.ClientStringToClientType(xmlNode2.Attributes["type"].Value));
+                                                            break;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                SourceValidator.ValidateConstantParam(xmlNode2);
+                                            }
+                                        }
+                                    }
+                                    continue;
+                                }
+                                if (xmlNode.Name == "returns")
+                                {
+                                    SourceValidator.ValidateFieldDataType(xmlNode, Converter.ClientStringToClientType(xmlNode.Attributes["type"].Value));
+                                }
+                            }
+                            return;
+                            break;
+                        case 1:
+                            break;
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                            SourceValidator.ValidateFieldDataType(field, Converter.ClientStringToClientType(field.Name));
+                            return;
+                        default:
+                            goto IL_311;
+                    }
+                    if (field.ChildNodes.Count != 1)
+                    {
+                        throw new SourceException(SourceException.ErrorIds.InvalidCollectionParameterXML, new string[0]);
+                    }
+                    if (Converter.StringToCollectionType(field.ChildNodes[0].Name) == CollectionType.Value)
+                    {
+                        SourceValidator.ValidateFieldDataType(field.ChildNodes[0], Converter.ClientStringToClientType(field.ChildNodes[0].Attributes["type"].Value));
+                        return;
+                    }
+                    return;
+                }
+            }
+        IL_311:
+            throw new MalformedXmlException(MalformedXmlException.ErrorIds.InvalidFieldName, new string[]
+            {
+                field.Name
+            });
         }
 
         internal static void ValidateActions(XmlNode actions)
@@ -265,49 +261,49 @@ namespace ESPL.Rule.Core
         }
 
         internal static bool IsOperatorTypeUsed(XmlNodeList fields, OperatorType type, out bool isNullable)
-		{
-			bool result = false;
-			bool flag = false;
-			foreach (XmlNode xmlNode in fields)
-			{
-				if (xmlNode.NodeType != XmlNodeType.Comment)
-				{
-					string name;
-					if ((name = xmlNode.Name) != null && name == "function")
-					{
+        {
+            bool result = false;
+            bool flag = false;
+            foreach (XmlNode xmlNode in fields)
+            {
+                if (xmlNode.NodeType != XmlNodeType.Comment)
+                {
+                    string name;
+                    if ((name = xmlNode.Name) != null && name == "function")
+                    {
                         IEnumerator enumerator2 = xmlNode.ChildNodes.GetEnumerator();
-						while (enumerator2.MoveNext())
-						{
-							XmlNode xmlNode2 = (XmlNode)enumerator2.Current;
-							if (xmlNode2.NodeType != XmlNodeType.Comment && xmlNode2.Name == "returns" && (type == OperatorType.Bool || type == Converter.ClientStringToClientType(xmlNode2.Attributes["type"].Value)))
-							{
-								if (!flag && xmlNode2.Attributes["nullable"].Value == "true")
-								{
-									flag = true;
-								}
-								result = true;
-							}
-						}
-						continue;
-					}
-					OperatorType operatorType = Converter.ClientStringToClientType(xmlNode.Name);
-					if (type == OperatorType.Bool || type == operatorType)
-					{
-						if (operatorType == OperatorType.Collection)
-						{
-							flag = true;
-						}
-						else if (!flag && xmlNode.Attributes["nullable"].Value == "true")
-						{
-							flag = true;
-						}
-						result = true;
-					}
-				}
-			}
-			isNullable = flag;
-			return result;
-		}
+                        while (enumerator2.MoveNext())
+                        {
+                            XmlNode xmlNode2 = (XmlNode)enumerator2.Current;
+                            if (xmlNode2.NodeType != XmlNodeType.Comment && xmlNode2.Name == "returns" && (type == OperatorType.Bool || type == Converter.ClientStringToClientType(xmlNode2.Attributes["type"].Value)))
+                            {
+                                if (!flag && xmlNode2.Attributes["nullable"].Value == "true")
+                                {
+                                    flag = true;
+                                }
+                                result = true;
+                            }
+                        }
+                        continue;
+                    }
+                    OperatorType operatorType = Converter.ClientStringToClientType(xmlNode.Name);
+                    if (type == OperatorType.Bool || type == operatorType)
+                    {
+                        if (operatorType == OperatorType.Collection)
+                        {
+                            flag = true;
+                        }
+                        else if (!flag && xmlNode.Attributes["nullable"].Value == "true")
+                        {
+                            flag = true;
+                        }
+                        result = true;
+                    }
+                }
+            }
+            isNullable = flag;
+            return result;
+        }
 
         private static void ValidateAction(XmlNode action)
         {

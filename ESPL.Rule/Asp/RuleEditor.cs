@@ -1286,7 +1286,14 @@ namespace ESPL.Rule.Asp
                 var assembly = Assembly.GetExecutingAssembly();
                 string strFileName = "CodeEffects.Rule.Resource.Scripts.Control.js";
                 var stream = assembly.GetManifestResourceStream(this.GetType(), strFileName);
-                throw new NotImplementedException();//TODO string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
+                
+                
+                //throw new NotImplementedException();//TODO 
+                var textStreamReader = new StreamReader(assembly.GetManifestResourceStream(strFileName));
+                string content = textStreamReader.ReadToEnd();
+                xmlDocument.LoadXml(content);
+
+                //string xml = (this.Mode == RuleType.Filter) ? Resource.FilterHelp : Resource.RuleHelp;
                 //xmlDocument.LoadXml(xml);
                 return xmlDocument;
             }
