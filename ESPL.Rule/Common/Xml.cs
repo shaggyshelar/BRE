@@ -160,8 +160,8 @@ namespace ESPL.Rule.Common
         internal static XmlDocument GetEmptySourceDocument()
         {
             XmlDocument xmlDocument = new XmlDocument();
-            //xmlDocument.InnerXml = string.Format("<codeeffects xmlns=\"{0}\"></codeeffects>", "http://codeeffects.com/schemas/source/42");
-            xmlDocument.InnerXml = string.Format("<espl xmlns=\"{0}\"></espl>", "http://espl.com/schemas/source/42");
+            xmlDocument.InnerXml = string.Format("<codeeffects xmlns=\"{0}\"></codeeffects>", "http://codeeffects.com/schemas/source/42");
+            //xmlDocument.InnerXml = string.Format("<espl xmlns=\"{0}\"></espl>", "http://espl.com/schemas/source/42");
             xmlDocument.InsertBefore(xmlDocument.CreateXmlDeclaration("1.0", "utf-8", "yes"), xmlDocument.DocumentElement);
             return xmlDocument;
         }
