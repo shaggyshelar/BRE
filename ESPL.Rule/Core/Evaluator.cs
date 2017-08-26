@@ -250,7 +250,6 @@ namespace ESPL.Rule.Core
         /// <returns>Returns boolean result of evaluation: true if successful, false otherwise.</returns>
         public bool Evaluate(TSource source, string ruleId = null)
         {
-            base.DelayIfDemo();
             if (ruleId == null)
             {
                 return this.predicates.First<KeyValuePair<string, Predicate<TSource>>>().Value.Delegate(source);

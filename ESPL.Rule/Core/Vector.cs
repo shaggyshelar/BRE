@@ -36,10 +36,7 @@ namespace ESPL.Rule.Core
 
         internal static void DelayIfDemo()
         {
-            if (!Vector.Compiled)
-            {
-                Thread.Sleep(1000);
-            }
+            
         }
 
         internal static bool IsDemo(string requestHost, string serverName, bool isLocal)
