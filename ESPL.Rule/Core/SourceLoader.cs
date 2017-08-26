@@ -16,6 +16,8 @@ namespace ESPL.Rule.Core
 {
     internal sealed class SourceLoader
     {
+        private static Dictionary<string, int> _dictionary;
+
         private class Member
         {
             public MemberInfo Info
@@ -1495,170 +1497,168 @@ namespace ESPL.Rule.Core
 
         private static bool ParamsMatch(XmlNode source, Type sourceObject, ParameterInfo[] pis, XmlNodeList paramNodes)
         {
-            throw new NotImplementedException();//TODO
-            //{
-            //    bool flag = true;
-            //    int i = 0;
-            //    while (i < pis.Length)
-            //    {
-            //        XmlNode xmlNode = paramNodes[i];
-            //        string name;
-            //        if ((name = xmlNode.Name) != null)
-            //        {
-            //            if (<PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000390-1 == null)
-            //            {
-            //                <PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000390-1 = new Dictionary<string, int>(7)
-            //                {
-            //                    {
-            //                        "source",
-            //                        0
-            //                    },
-            //                    {
-            //                        "self",
-            //                        1
-            //                    },
-            //                    {
-            //                        "collection",
-            //                        2
-            //                    },
-            //                    {
-            //                        "input",
-            //                        3
-            //                    },
-            //                    {
-            //                        "constant",
-            //                        4
-            //                    },
-            //                    {
-            //                        "property",
-            //                        5
-            //                    },
-            //                    {
-            //                        "value",
-            //                        6
-            //                    }
-            //                };
-            //            }
-            //            int num;
-            //            if (<PrivateImplementationDetails>{C6EA5F6E-C064-4F46-8F27-151D6168C23D}.$$method0x6000390-1.TryGetValue(name, out num))
-            //            {
-            //                switch (num)
-            //                {
-            //                case 0:
-            //                case 1:
-            //                {
-            //                    Type parameterType = pis[i].ParameterType;
-            //                    bool flag2 = false;
-            //                    if (parameterType.IsGenericParameter)
-            //                    {
-            //                        Type[] interfaces = parameterType.GetInterfaces();
-            //                        flag2 = !interfaces.Contains(typeof(IEnumerable));
-            //                    }
-            //                    flag = (flag2 || (parameterType.IsInterface && SourceValidator.InterfacesSameOrSub(parameterType, sourceObject)) || TypeUtils.AreEquivalent(parameterType, typeof(object)) || TypeUtils.IsSameOrSubclass(parameterType, sourceObject));
-            //                    break;
-            //                }
-            //                case 2:
-            //                    if (xmlNode.ChildNodes[0].Name == "generic")
-            //                    {
-            //                        flag = (string.IsNullOrEmpty(pis[i].ParameterType.FullName) && pis[i].ParameterType.Name == xmlNode.Attributes["class"].Value);
-            //                    }
-            //                    else
-            //                    {
-            //                        Type underlyingType = SourceLoader.GetUnderlyingType(pis[i].ParameterType, null);
-            //                        if (xmlNode.Attributes["array"].Value == "true")
-            //                        {
-            //                            flag = (pis[i].ParameterType.IsArray && xmlNode.ChildNodes[0].Attributes["class"].Value == pis[i].ParameterType.GetElementType().FullName);
-            //                        }
-            //                        else
-            //                        {
-            //                            Type type = Type.GetType(xmlNode.Attributes["class"].Value);
-            //                            Type underlyingType2 = SourceLoader.GetUnderlyingType(type, Type.GetType(xmlNode.ChildNodes[0].Attributes["class"].Value));
-            //                            flag = (TypeUtils.IsSameOrSubclass(type, pis[i].ParameterType) && TypeUtils.IsSameOrSubclass(underlyingType2, underlyingType));
-            //                        }
-            //                    }
-            //                    break;
-            //                case 3:
-            //                case 4:
-            //                {
-            //                    Type type;
-            //                    if (xmlNode.Attributes["assembly"] != null)
-            //                    {
-            //                        type = Type.GetType(xmlNode.Attributes["class"].Value + ", " + xmlNode.Attributes["assembly"].Value);
-            //                        if (type == null)
-            //                        {
-            //                            type = Type.GetType(xmlNode.Attributes["class"].Value);
-            //                        }
-            //                    }
-            //                    else
-            //                    {
-            //                        type = Type.GetType(xmlNode.Attributes["class"].Value);
-            //                    }
-            //                    flag = (TypeUtils.AreEquivalent(type, pis[i].ParameterType) || TypeUtils.IsImplicitlyConvertible(type, pis[i].ParameterType));
-            //                    break;
-            //                }
-            //                case 5:
-            //                {
-            //                    XmlNode fieldByPropertyName = SourceLoader.GetFieldByPropertyName(source, xmlNode.Attributes["name"].Value);
-            //                    Type type;
-            //                    if (fieldByPropertyName.Attributes["assembly"] != null)
-            //                    {
-            //                        type = Type.GetType(fieldByPropertyName.Attributes["class"].Value + ", " + fieldByPropertyName.Attributes["assembly"].Value);
-            //                        if (type == null)
-            //                        {
-            //                            type = Type.GetType(fieldByPropertyName.Attributes["class"].Value);
-            //                        }
-            //                    }
-            //                    else
-            //                    {
-            //                        type = Type.GetType(fieldByPropertyName.Attributes["class"].Value);
-            //                    }
-            //                    Type[] interfaces2 = type.GetInterfaces();
-            //                    if (interfaces2.Contains(typeof(IDictionary)))
-            //                    {
-            //                        flag = false;
-            //                    }
-            //                    else if (interfaces2.Contains(typeof(IEnumerable)) && type != typeof(string))
-            //                    {
-            //                        if (type.IsGenericType)
-            //                        {
-            //                            flag = true;
-            //                        }
-            //                        else
-            //                        {
-            //                            type = SourceLoader.GetBaseGenericType(type);
-            //                            flag = ((type.IsInterface && type.IsGenericType && pis[i].ParameterType.IsInterface && pis[i].ParameterType.IsGenericType) || TypeUtils.IsSameOrSubclass(type.GetGenericTypeDefinition(), pis[i].ParameterType.GetGenericTypeDefinition()));
-            //                        }
-            //                    }
-            //                    else
-            //                    {
-            //                        flag = (TypeUtils.AreEquivalent(type, pis[i].ParameterType) || TypeUtils.IsImplicitlyConvertible(type, pis[i].ParameterType));
-            //                    }
-            //                    break;
-            //                }
-            //                case 6:
-            //                {
-            //                    string a = (xmlNode.Attributes["type"] == null) ? typeof(string).FullName : Type.GetType(xmlNode.Attributes["type"].Value).FullName;
-            //                    flag = (a == pis[i].ParameterType.FullName);
-            //                    break;
-            //                }
-            //                default:
-            //                    goto IL_513;
-            //                }
-            //                if (flag)
-            //                {
-            //                    i++;
-            //                    continue;
-            //                }
-            //                break;
-            //            }
-            //        }
-            //        IL_513:
-            //        throw new MalformedXmlException(MalformedXmlException.ErrorIds.UnknownNodeName, new string[]
-            //        {
-            //            paramNodes[i].Name
-            //        });
-            //    }
-            //    return flag;
+            bool flag = true;
+            int i = 0;
+            while (i < pis.Length)
+            {
+                XmlNode xmlNode = paramNodes[i];
+                string name;
+                if ((name = xmlNode.Name) != null)
+                {
+                    if (_dictionary == null)
+                    {
+                        _dictionary = new Dictionary<string, int>(7)
+                            {
+                                {
+                                    "source",
+                                    0
+                                },
+                                {
+                                    "self",
+                                    1
+                                },
+                                {
+                                    "collection",
+                                    2
+                                },
+                                {
+                                    "input",
+                                    3
+                                },
+                                {
+                                    "constant",
+                                    4
+                                },
+                                {
+                                    "property",
+                                    5
+                                },
+                                {
+                                    "value",
+                                    6
+                                }
+                            };
+                    }
+                    int num;
+                    if (_dictionary.TryGetValue(name, out num))
+                    {
+                        switch (num)
+                        {
+                            case 0:
+                            case 1:
+                                {
+                                    Type parameterType = pis[i].ParameterType;
+                                    bool flag2 = false;
+                                    if (parameterType.IsGenericParameter)
+                                    {
+                                        Type[] interfaces = parameterType.GetInterfaces();
+                                        flag2 = !interfaces.Contains(typeof(IEnumerable));
+                                    }
+                                    flag = (flag2 || (parameterType.IsInterface && SourceValidator.InterfacesSameOrSub(parameterType, sourceObject)) || TypeUtils.AreEquivalent(parameterType, typeof(object)) || TypeUtils.IsSameOrSubclass(parameterType, sourceObject));
+                                    break;
+                                }
+                            case 2:
+                                if (xmlNode.ChildNodes[0].Name == "generic")
+                                {
+                                    flag = (string.IsNullOrEmpty(pis[i].ParameterType.FullName) && pis[i].ParameterType.Name == xmlNode.Attributes["class"].Value);
+                                }
+                                else
+                                {
+                                    Type underlyingType = SourceLoader.GetUnderlyingType(pis[i].ParameterType, null);
+                                    if (xmlNode.Attributes["array"].Value == "true")
+                                    {
+                                        flag = (pis[i].ParameterType.IsArray && xmlNode.ChildNodes[0].Attributes["class"].Value == pis[i].ParameterType.GetElementType().FullName);
+                                    }
+                                    else
+                                    {
+                                        Type type = Type.GetType(xmlNode.Attributes["class"].Value);
+                                        Type underlyingType2 = SourceLoader.GetUnderlyingType(type, Type.GetType(xmlNode.ChildNodes[0].Attributes["class"].Value));
+                                        flag = (TypeUtils.IsSameOrSubclass(type, pis[i].ParameterType) && TypeUtils.IsSameOrSubclass(underlyingType2, underlyingType));
+                                    }
+                                }
+                                break;
+                            case 3:
+                            case 4:
+                                {
+                                    Type type;
+                                    if (xmlNode.Attributes["assembly"] != null)
+                                    {
+                                        type = Type.GetType(xmlNode.Attributes["class"].Value + ", " + xmlNode.Attributes["assembly"].Value);
+                                        if (type == null)
+                                        {
+                                            type = Type.GetType(xmlNode.Attributes["class"].Value);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        type = Type.GetType(xmlNode.Attributes["class"].Value);
+                                    }
+                                    flag = (TypeUtils.AreEquivalent(type, pis[i].ParameterType) || TypeUtils.IsImplicitlyConvertible(type, pis[i].ParameterType));
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    XmlNode fieldByPropertyName = SourceLoader.GetFieldByPropertyName(source, xmlNode.Attributes["name"].Value);
+                                    Type type;
+                                    if (fieldByPropertyName.Attributes["assembly"] != null)
+                                    {
+                                        type = Type.GetType(fieldByPropertyName.Attributes["class"].Value + ", " + fieldByPropertyName.Attributes["assembly"].Value);
+                                        if (type == null)
+                                        {
+                                            type = Type.GetType(fieldByPropertyName.Attributes["class"].Value);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        type = Type.GetType(fieldByPropertyName.Attributes["class"].Value);
+                                    }
+                                    Type[] interfaces2 = type.GetInterfaces();
+                                    if (interfaces2.Contains(typeof(IDictionary)))
+                                    {
+                                        flag = false;
+                                    }
+                                    else if (interfaces2.Contains(typeof(IEnumerable)) && type != typeof(string))
+                                    {
+                                        if (type.IsGenericType)
+                                        {
+                                            flag = true;
+                                        }
+                                        else
+                                        {
+                                            type = SourceLoader.GetBaseGenericType(type);
+                                            flag = ((type.IsInterface && type.IsGenericType && pis[i].ParameterType.IsInterface && pis[i].ParameterType.IsGenericType) || TypeUtils.IsSameOrSubclass(type.GetGenericTypeDefinition(), pis[i].ParameterType.GetGenericTypeDefinition()));
+                                        }
+                                    }
+                                    else
+                                    {
+                                        flag = (TypeUtils.AreEquivalent(type, pis[i].ParameterType) || TypeUtils.IsImplicitlyConvertible(type, pis[i].ParameterType));
+                                    }
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    string a = (xmlNode.Attributes["type"] == null) ? typeof(string).FullName : Type.GetType(xmlNode.Attributes["type"].Value).FullName;
+                                    flag = (a == pis[i].ParameterType.FullName);
+                                    break;
+                                }
+                            default:
+                                goto IL_513;
+                        }
+                        if (flag)
+                        {
+                            i++;
+                            continue;
+                        }
+                        break;
+                    }
+                }
+            IL_513:
+                throw new MalformedXmlException(MalformedXmlException.ErrorIds.UnknownNodeName, new string[]
+                    {
+                        paramNodes[i].Name
+                    });
+            }
+            return flag;
         }
 
         private static List<MethodInfo> GetMethods(Type type)

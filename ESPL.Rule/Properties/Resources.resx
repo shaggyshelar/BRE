@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CodeEffects_Rule_Resource_Scripts_Control" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CodeEffects.Rule.Resource.Scripts.Control.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="Errors" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-8" ?&gt;
 &lt;codeeffects&gt;
@@ -525,7 +521,32 @@
 	&lt;/labels&gt;
 &lt;/codeeffects&gt;</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="FilterType" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FilterType.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Scripts_Control" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Scripts.Control.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Styles_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Styles.Black.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Styles_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Styles.Blue.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Styles_Gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Styles.Gray.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Styles_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Styles.Green.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Styles_Navy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Styles.Navy.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Styles_Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Styles.Red.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Styles_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Styles.White.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

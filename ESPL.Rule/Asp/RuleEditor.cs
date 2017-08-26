@@ -797,7 +797,7 @@ namespace ESPL.Rule.Asp
             Literal literal = new Literal();
             literal.ID = "ce002" + this.ID;
             literal.EnableViewState = false;
-            literal.Text = string.Format("<a href=\"http://codeeffects.com\" {0}=\"{1}\">*</a>", "ce002", this.IsDemo().ToString().ToLower());
+            literal.Text = string.Format("<a href=\"http://espl.com\" {0}=\"{1}\">*</a>", "ce002", this.IsDemo().ToString().ToLower());
             this.Controls.AddAt(0, literal);
             if (!this.ClientOnly)
             {
@@ -823,24 +823,24 @@ namespace ESPL.Rule.Asp
                 {
                     if (current.CompositeScript != null)
                     {
-                        if (!current.CompositeScript.Scripts.Any((ScriptReference script) => script.Name == "CodeEffects.Rule.Resources.Scripts.Control.js"))
+                        if (!current.CompositeScript.Scripts.Any((ScriptReference script) => script.Name == "ESPL.Rule.Resources.Scripts.Control.js"))
                         {
-                            current.CompositeScript.Scripts.Add(new ScriptReference("CodeEffects.Rule.Resources.Scripts.Control.js", Assembly.GetExecutingAssembly().FullName));
+                            current.CompositeScript.Scripts.Add(new ScriptReference("ESPL.Rule.Resources.Scripts.Control.js", Assembly.GetExecutingAssembly().FullName));
                         }
                     }
                     else
                     {
-                        current.Scripts.Add(new ScriptReference("CodeEffects.Rule.Resources.Scripts.Control.js", Assembly.GetExecutingAssembly().FullName));
+                        current.Scripts.Add(new ScriptReference("ESPL.Rule.Resources.Scripts.Control.js", Assembly.GetExecutingAssembly().FullName));
                     }
                     goto IL_D8;
                 }
                 catch
                 {
-                    this.Page.ClientScript.RegisterClientScriptResource(type, "CodeEffects.Rule.Resources.Scripts.Control.js");
+                    this.Page.ClientScript.RegisterClientScriptResource(type, "ESPL.Rule.Resources.Scripts.Control.js");
                     goto IL_D8;
                 }
             }
-            this.Page.ClientScript.RegisterClientScriptResource(type, "CodeEffects.Rule.Resources.Scripts.Control.js");
+            this.Page.ClientScript.RegisterClientScriptResource(type, "ESPL.Rule.Resources.Scripts.Control.js");
         IL_D8:
             if (!this.ClientOnly && !this.Page.ClientScript.IsOnSubmitStatementRegistered(type, "scrCodeEffectsControlOnSubmit" + this.ClientID))
             {
@@ -1284,9 +1284,8 @@ namespace ESPL.Rule.Asp
             {
                 XmlDocument xmlDocument = new XmlDocument();
                 var assembly = Assembly.GetExecutingAssembly();
-                string strFileName = "CodeEffects.Rule.Resource.Scripts.Control.js";
+                string strFileName = "ESPL.Rule.Resource.Scripts.Control.js";
                 var stream = assembly.GetManifestResourceStream(this.GetType(), strFileName);
-                
                 
                 //throw new NotImplementedException();//TODO 
                 var textStreamReader = new StreamReader(assembly.GetManifestResourceStream(strFileName));

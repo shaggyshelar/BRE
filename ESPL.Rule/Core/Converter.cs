@@ -20,19 +20,19 @@ namespace ESPL.Rule.Core
             switch (theme)
             {
                 case ThemeType.White:
-                    return "CodeEffects.Rule.Resources.Styles.White.css";
+                    return "ESPL.Rule.Resources.Styles.White.css";
                 case ThemeType.Green:
-                    return "CodeEffects.Rule.Resources.Styles.Green.css";
+                    return "ESPL.Rule.Resources.Styles.Green.css";
                 case ThemeType.Red:
-                    return "CodeEffects.Rule.Resources.Styles.Red.css";
+                    return "ESPL.Rule.Resources.Styles.Red.css";
                 case ThemeType.Black:
-                    return "CodeEffects.Rule.Resources.Styles.Black.css";
+                    return "ESPL.Rule.Resources.Styles.Black.css";
                 case ThemeType.Blue:
-                    return "CodeEffects.Rule.Resources.Styles.Blue.css";
+                    return "ESPL.Rule.Resources.Styles.Blue.css";
                 case ThemeType.Navy:
-                    return "CodeEffects.Rule.Resources.Styles.Navy.css";
+                    return "ESPL.Rule.Resources.Styles.Navy.css";
                 default:
-                    return "CodeEffects.Rule.Resources.Styles.Gray.css";
+                    return "ESPL.Rule.Resources.Styles.Gray.css";
             }
         }
 

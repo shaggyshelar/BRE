@@ -37,7 +37,6 @@ namespace ESPL.Rule.Core
         internal string GetLinkUrl()
         {
             return new Page().ClientScript.GetWebResourceUrl(typeof(RuleEditor), Converter.ThemeTypeToResourceName(this.theme));
-            //throw new NotImplementedException();//TODO:
         }
     }
 }

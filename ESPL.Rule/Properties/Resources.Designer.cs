@@ -61,15 +61,6 @@ namespace ESPL.Rule.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to window||(this.window=this);window.CodeEffects||(window.CodeEffects={typeName:&quot;CodeEffects&quot;,getName:function(){return&quot;CodeEffects&quot;},__namespace:!0});CodeEffects.register||(CodeEffects.register=function(c){var e=window;c=c.split(&quot;.&quot;);for(var d=0;d&lt;c.length;d++){var l=c[d],h=e[l];h||(h=e[l]={typeName:c.slice(0,d+1).join(&quot;.&quot;),__namespace:!0},h.getName=function(){return this.typeName});e=h}});CodeEffects.register(&quot;CodeEffects.Rule.Client&quot;);CodeEffects.register(&quot;CodeEffects.Rule.Models&quot;);CodeEffects.register(&quot;Cod [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string CodeEffects_Rule_Resource_Scripts_Control {
-            get {
-                return ResourceManager.GetString("CodeEffects_Rule_Resource_Scripts_Control", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;codeeffects&gt;
         ///	&lt;help&gt;
@@ -117,6 +108,103 @@ namespace ESPL.Rule.Properties {
         internal static string FilterType {
             get {
                 return ResourceManager.GetString("FilterType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to window||(this.window=this);window.CodeEffects||(window.CodeEffects={typeName:&quot;CodeEffects&quot;,getName:function(){return&quot;CodeEffects&quot;},__namespace:!0});CodeEffects.register||(CodeEffects.register=function(c){var e=window;c=c.split(&quot;.&quot;);for(var d=0;d&lt;c.length;d++){var l=c[d],h=e[l];h||(h=e[l]={typeName:c.slice(0,d+1).join(&quot;.&quot;),__namespace:!0},h.getName=function(){return this.typeName});e=h}});CodeEffects.register(&quot;CodeEffects.Rule.Client&quot;);CodeEffects.register(&quot;CodeEffects.Rule.Models&quot;);CodeEffects.register(&quot;Cod [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Scripts_Control {
+            get {
+                return ResourceManager.GetString("Scripts_Control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to table.ceHeader,td.ceDays{font-family:Tahoma,Geneva,sans-serif}
+        ///div.ceToolBar input,table.ceTime input,table.ceTime select,span.ceSaveButton,span.ceDeleteButton,span.ceRulesButton,table.ceCal table td,table.ceHeader table td,div.ceMenu table td{font-family:Tahoma,Arial,sans-serif;font-size:12px}
+        ///div.ceCursorOuter{border-top:solid 1px #FFF;border-bottom:solid 1px #FFF}
+        ///div.ceCursorInner{border-left:solid 1px #FFF}
+        ///div.ceMenu table,div.ceMenu table td,div.ceRule span,div.ceToolBar table,div.ceToolBar table [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Styles_Black {
+            get {
+                return ResourceManager.GetString("Styles_Black", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to div.ceToolBar input,table.ceTime input,table.ceTime select,span.ceSaveButton,span.ceDeleteButton,span.ceRulesButton,table.ceCal table td,table.ceHeader table td,div.ceMenu table td{font-family:Tahoma,Arial,sans-serif;font-size:12px}
+        ///table.ceHeader,td.ceDays{font-family:Tahoma,Geneva,sans-serif}
+        ///div.ceHelp,input.ceNameBox,input.ceDescriptionBox{color:#444;text-shadow:0 1px 0 rgba(200, 200, 200, 1)}
+        ///span.ceFlow,div.ceToolBar,span.ceClause,span.ceOperator,span.ceParenthesis,span.ceNewLine,span.ceBrace{color [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Styles_Blue {
+            get {
+                return ResourceManager.GetString("Styles_Blue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to div.ceToolBar input,table.ceTime input,table.ceTime select,span.ceSaveButton,span.ceDeleteButton,span.ceRulesButton,table.ceCal table td,table.ceHeader table td,div.ceMenu table td{font-family:Tahoma,Arial,sans-serif;font-size:12px}
+        ///table.ceHeader,td.ceDays{font-family:Tahoma,Geneva,sans-serif}
+        ///div.ceHelp,input.ceNameBox,input.ceDescriptionBox{color:#444;text-shadow:0 1px 0 rgba(200, 200, 200, 1)}
+        ///span.ceFlow,div.ceToolBar,span.ceClause,span.ceOperator,span.ceParenthesis,span.ceNewLine,span.ceBrace{color [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Styles_Gray {
+            get {
+                return ResourceManager.GetString("Styles_Gray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to div.ceToolBar input,table.ceTime input,table.ceTime select,span.ceSaveButton,span.ceDeleteButton,span.ceRulesButton,table.ceCal table td,table.ceHeader table td,div.ceMenu table td{font-family:Tahoma, Arial;font-size:12px}
+        ///div.ceHelp,input.ceNameBox,input.ceDescriptionBox{color:#444;text-shadow:0 1px 0 rgba(200, 200, 200, 1)}
+        ///table.ceHeader,td.ceDays{font-family:Tahoma,Geneva,sans-serif}
+        ///span.ceFlow,div.ceToolBar,span.ceClause,span.ceOperator,span.ceParenthesis,span.ceNewLine,span.ceBrace{color:#000}
+        ///sp [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Styles_Green {
+            get {
+                return ResourceManager.GetString("Styles_Green", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to table.ceHeader,td.ceDays{font-family:Tahoma,Geneva,sans-serif}
+        ///div.ceToolBar input,table.ceTime input,table.ceTime select,span.ceSaveButton,span.ceDeleteButton,span.ceRulesButton,table.ceCal table td,table.ceHeader table td,div.ceMenu table td{font-family:Tahoma,Arial,sans-serif;font-size:12px}
+        ///input.ceNameBox,input.ceDescriptionBox{text-shadow:0 1px 0 rgba(200, 200, 200, 1)}
+        ///span.ceDeleteButton{color:#FF30C8}
+        ///span.ceValue,span.ceSaveButton{color:#19FF00}
+        ///td.ceRollover,table.ceHeader,span.ceFlow,span.c [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Styles_Navy {
+            get {
+                return ResourceManager.GetString("Styles_Navy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to table.ceHeader,td.ceDays{font-family:Tahoma,Geneva,sans-serif}
+        ///div.ceToolBar input,table.ceTime input,table.ceTime select,span.ceSaveButton,span.ceDeleteButton,span.ceRulesButton,table.ceCal table td,table.ceHeader table td,div.ceMenu table td{font-family:Tahoma,Arial,sans-serif;font-size:12px}
+        ///div.ceToolBar{border:solid 1px #FF9696;text-shadow:0 1px 0 rgba(255, 212, 212, 1);padding:3px 6px;white-space:nowrap;background-color:#FFC4C4;background:-webkit-gradient(linear,left top,left bottom,from(#FFA9A9),to [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Styles_Red {
+            get {
+                return ResourceManager.GetString("Styles_Red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to table.ceHeader,td.ceDays{font-family:Tahoma,Geneva,sans-serif}
+        ///div.ceToolBar input,table.ceTime input,table.ceTime select,span.ceSaveButton,span.ceDeleteButton,span.ceRulesButton,table.ceCal table td,table.ceHeader table td,div.ceMenu table td{font-family:Tahoma,Arial,sans-serif;font-size:12px}
+        ///input.ceNameBox,input.ceDescriptionBox,div.ceHelp{text-shadow:0 1px 0 rgba(200, 200, 200, 1)}
+        ///div.ceHelp{color:#777;padding:0 0 8px 0;font-size:11px}
+        ///input.ceNameBoxDefault,input.ceDescriptionBoxDefault{color:#8F [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Styles_White {
+            get {
+                return ResourceManager.GetString("Styles_White", resourceCulture);
             }
         }
     }

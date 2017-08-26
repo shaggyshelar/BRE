@@ -41,7 +41,7 @@ namespace ESPL.Rule.Common
 
         private static void AddSchema(XmlSchemaSet schemas, string schemaName, Assembly assembly)
         {
-            using (Stream manifestResourceStream = assembly.GetManifestResourceStream(string.Format("CodeEffects.Rule.Resources.Schemas.{0}.xsd", schemaName)))
+            using (Stream manifestResourceStream = assembly.GetManifestResourceStream(string.Format("ESPL.Rule.Resources.Schemas.{0}.xsd", schemaName)))
             {
                 using (XmlReader xmlReader = XmlReader.Create(manifestResourceStream, new XmlReaderSettings
                 {

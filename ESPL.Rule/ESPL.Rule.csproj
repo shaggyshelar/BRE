@@ -173,9 +173,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\CodeEffects.Rule.Resource.Scripts.Control.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\FilterType.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +196,30 @@
     <EmbeddedResource Include="Resources\Schemas.UI.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scripts.Control.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Styles.Black.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Styles.Blue.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Styles.Gray.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Styles.Green.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Styles.Navy.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Styles.Red.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Styles.White.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
