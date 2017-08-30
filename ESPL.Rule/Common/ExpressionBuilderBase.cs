@@ -1329,55 +1329,55 @@ namespace ESPL.Rule.Common
 
         private static void CastToCommonType(Expression[] expressions)
         {
-            throw new NotImplementedException();//TODO: //Type type = expressions[0].Type.GetNonNullableType();
-            //int num = ExpressionBuilderBase.NumericTypeRank(type);
-            //if (num > ExpressionBuilderBase.NumericTypeRank(typeof(byte)))
-            //{
-            //    type = typeof(byte);
-            //    num = ExpressionBuilderBase.NumericTypeRank(type);
-            //}
-            //bool flag = ExpressionBuilderBase.IsGenericNullable(type);
-            //for (int i = 0; i < expressions.Length; i++)
-            //{
-            //    Type type2 = expressions[i].Type;
-            //    if (ExpressionBuilderBase.IsGenericNullable(type2))
-            //    {
-            //        type2 = type2.GetNonNullableType();
-            //        flag = true;
-            //    }
-            //    if (type2 == typeof(byte) || type2 == typeof(sbyte) || type2 == typeof(short) || type2 == typeof(ushort) || type2 == typeof(char))
-            //    {
-            //        type2 = typeof(int);
-            //    }
-            //    else if (type2 == typeof(uint))
-            //    {
-            //        type2 = typeof(long);
-            //    }
-            //    int num2 = ExpressionBuilderBase.NumericTypeRank(type2);
-            //    if ((num2 >= 0 && num < num2) || (num2 < 0 && TypeUtils.IsImplicitlyConvertible(type, type2)))
-            //    {
-            //        type = type2;
-            //        num = num2;
-            //    }
-            //}
-            //for (int j = 0; j < expressions.Length; j++)
-            //{
-            //    Type type3 = expressions[j].Type;
-            //    if (flag)
-            //    {
-            //        if (!ExpressionBuilderBase.IsGenericNullable(type3) || type3.GetNonNullableType() != type)
-            //        {
-            //            expressions[j] = Expression.Convert(expressions[j], typeof(Nullable<>).MakeGenericType(new Type[]
-            //            {
-            //                type
-            //            }));
-            //        }
-            //    }
-            //    else if (type3 != type)
-            //    {
-            //        expressions[j] = Expression.Convert(expressions[j], type);
-            //    }
-            //}
+            Type type = expressions[0].Type.GetNonNullableType();
+            int num = ExpressionBuilderBase.NumericTypeRank(type);
+            if (num > ExpressionBuilderBase.NumericTypeRank(typeof(byte)))
+            {
+                type = typeof(byte);
+                num = ExpressionBuilderBase.NumericTypeRank(type);
+            }
+            bool flag = ExpressionBuilderBase.IsGenericNullable(type);
+            for (int i = 0; i < expressions.Length; i++)
+            {
+                Type type2 = expressions[i].Type;
+                if (ExpressionBuilderBase.IsGenericNullable(type2))
+                {
+                    type2 = type2.GetNonNullableType();
+                    flag = true;
+                }
+                if (type2 == typeof(byte) || type2 == typeof(sbyte) || type2 == typeof(short) || type2 == typeof(ushort) || type2 == typeof(char))
+                {
+                    type2 = typeof(int);
+                }
+                else if (type2 == typeof(uint))
+                {
+                    type2 = typeof(long);
+                }
+                int num2 = ExpressionBuilderBase.NumericTypeRank(type2);
+                if ((num2 >= 0 && num < num2) || (num2 < 0 && TypeUtils.IsImplicitlyConvertible(type, type2)))
+                {
+                    type = type2;
+                    num = num2;
+                }
+            }
+            for (int j = 0; j < expressions.Length; j++)
+            {
+                Type type3 = expressions[j].Type;
+                if (flag)
+                {
+                    if (!ExpressionBuilderBase.IsGenericNullable(type3) || type3.GetNonNullableType() != type)
+                    {
+                        expressions[j] = Expression.Convert(expressions[j], typeof(Nullable<>).MakeGenericType(new Type[]
+                        {
+                            type
+                        }));
+                    }
+                }
+                else if (type3 != type)
+                {
+                    expressions[j] = Expression.Convert(expressions[j], type);
+                }
+            }
         }
 
         public static bool IsGenericNullable(Type type)

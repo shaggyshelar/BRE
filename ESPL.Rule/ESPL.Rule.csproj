@@ -110,6 +110,7 @@
     <Compile Include="Core\CacheDict.cs" />
     <Compile Include="Core\ConversionVisitor.cs" />
     <Compile Include="Core\Converter.cs" />
+    <Compile Include="Core\DynamicEvaluator.cs" />
     <Compile Include="Core\Encoder.cs" />
     <Compile Include="Core\Delegates.cs" />
     <Compile Include="Core\EvaluationParameters.cs" />
